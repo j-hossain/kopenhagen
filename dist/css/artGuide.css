@@ -1,0 +1,351 @@
+.menuBody{
+	width: 100%;
+}
+.menu{
+	width: 80%;
+	margin: 30px auto;
+	border-radius: 15px;
+	position: sticky;
+	top: 75px;
+	left: 1px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.circle{
+	margin: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	z-index: 9;
+	opacity: 0.5;
+	cursor:  pointer;
+	position: sticky;
+	top: 75px;
+	left: 1px;
+	overflow: hidden;
+}
+
+.circle:before{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	content: 'Menu';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--orangy);
+}
+
+.menu :after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--orangy);
+	opacity: .1;
+	z-index: -1;
+}
+
+.menu .title{
+	font-size: 22px;
+	text-transform: uppercase;
+	color: var(--navBg);
+	padding: 15px 0;
+}
+
+.menu .menuItems .item{
+	padding: 10px 0;
+	border-top: 1px solid var(--orangy);
+	color: #fff;
+	cursor: pointer;
+	text-transform: capitalize;
+}
+
+.menu .menuItems .item:hover,
+.menu .menuItems .item.active{
+	background: var(--orangy);
+}
+
+@media screen and (min-width: 750px) {
+	.menuBody{
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+	.adsBody{
+		grid-column-start: 3;
+		grid-row-start: 1;
+		grid-row-end: 10;
+	}
+
+	.menuBody .menu{
+		width: 83%;
+		margin:0 auto;
+	}
+}
+
+@media screen and (min-width: 1080px) {
+
+	.menuBody{
+		grid-column-start: 1;
+		grid-column-end: 2;
+		background-color: var(--lightBg);
+		grid-row-start: 1;
+		grid-row-end: 20;
+	}
+	.contentBody{
+		grid-column-start: 2!important;
+	}
+	.adsBody{
+		grid-column-start: 3;
+	}
+}
+
+.displayNone{
+	display: none;
+}
+
+/* getting the calender ready */
+
+.calenderDiv .grid .row {
+	display: flex;
+	justify-content: space-between;	
+	margin-bottom: 2px;
+}
+
+/* this styling keeps the date boxes a perfect square */
+.calenderDiv  .grid .row .square{
+	width: 14%;
+	padding-bottom: 14%;
+	position: relative;
+}
+
+.calenderDiv  .grid .row .col{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* border-radius: 50%; */
+	background-color: var(--lightBg);
+	border: 1px solid var(--midBg);
+}
+
+.calenderDiv .grid .row .col .date{
+	display: block;
+	padding: 2px;
+	color: var(--orangy);
+}
+
+.calenderDiv .grid .row .col.hover{
+	cursor: pointer;
+}
+.calenderDiv .grid .row .col.hover:hover{
+	background: var(--lightText);
+}
+
+/* styling the days row */
+.calenderDiv .grid .days .col{
+	width: 14%;
+	position: relative;
+	text-align: center;
+	background: var(--midBg);
+}
+
+.calenderDiv .grid .days .col .day{
+	padding: 10px 0;
+	display: block;
+	color: var(--navBg);
+}
+
+/* styling the calender navigator */
+.calender{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 49% 49%;
+	justify-content: space-between;
+}
+
+.calender div{
+	text-align: center;
+	padding: 20px 0;
+	font-size: 24px;
+	color: var(--orangy);
+	user-select: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.calender div .btn{
+	background: var(--lightBg);
+	padding: 5px 10px;
+	border-radius: 50%;
+	cursor: pointer;
+	text-align: center;
+}
+
+.calender div .btn:hover{
+	background: var(--navBg);
+}
+
+/* styling the event dots on dates */
+.calenderDiv .eventDot{
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	margin-bottom: 2px;
+	font-size: 10px;
+	overflow: hidden;
+	background: var(--midBg);
+	border-radius: 5px;
+	padding: 1px 2px;
+	color: #fff;
+	display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+
+/* styling for mobile devices */
+@media screen and (max-width: 450px) {
+
+	.calender div{
+		font-size: 18px;
+	}
+
+	.calender div .btn{
+		padding: 2px 6px;
+	}
+
+	.calenderDiv .grid .row .col .date{
+		font-size: 12px;
+	}
+
+	.calenderDiv .grid .days .col .day{
+		font-size: 12px;
+	}
+	.calenderDiv .eventDot{
+		font-size: 8px;
+		height: 10px;
+	}
+	
+}
+
+
+/* styling the small preview boxes */
+.smallPreviewBoxes{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.smallPreviewBoxes .smallPreview{
+    width: 100%;
+    border: 0px solid var(--lightText);
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 5px 0;
+}
+
+.smallPreviewBoxes .smallPreview:hover{
+    transform: scale(0.98);
+    opacity: 0.9;
+    border-radius: 10px;
+}
+
+.smallPreviewBoxes .smallPreview{
+    width: 100%;
+}
+
+.smallPreviewBoxes .smallPreview a{
+    width: 100%;
+    display: flex;
+    background: var(--lightBg);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.smallPreviewBoxes .smallPreview .content{
+	width: 80%;
+}
+.smallPreviewBoxes .smallPreview .featureImage{
+	width: 20%;
+    margin: 10px;
+    padding-bottom: 30%;
+    position: relative;
+
+}
+.smallPreviewBoxes .smallPreview img{
+	position: absolute;
+	top: 0;
+	left: 0;
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+}
+
+.smallPreviewBoxes .smallPreview span{
+    padding-left: 10px;
+}
+
+.smallPreviewBoxes .smallPreview .title{
+    color: var(--darkText);
+    display: block;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.smallPreviewBoxes .smallPreview .time,
+.smallPreviewBoxes .smallPreview .address{ /* this applies to event boxes only  */ 
+    color: var(--darkText);
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--orangy);
+    display: block;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.smallPreviewBoxes .smallPreview .time span,
+.smallPreviewBoxes .smallPreview .address span{
+    padding-left: 0;
+}
+
+.smallPreviewBoxes .smallPreview .shortDes{
+    padding: 10px;
+    color: var(--midText);
+    display: block;
+    font-size: 14px;
+    line-height: 16px;
+    height: 44px;
+    overflow: hidden;
+	display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+@media screen and (max-width: 450px) {
+
+	
+	.smallPreviewBoxes .smallPreview .title{
+	    font-size: 16px;
+	}
+
+	.smallPreviewBoxes .smallPreview .shortDes,
+	.smallPreviewBoxes .smallPreview .time,
+	.smallPreviewBoxes .smallPreview .address
+	{
+		font-size: 12px
+	}
+}
+/* done styling the small preview boxes */
+
