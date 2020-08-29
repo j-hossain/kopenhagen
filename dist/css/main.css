@@ -1,0 +1,449 @@
+:root {
+    --navBarBg: linear-gradient(to bottom, #38cfde, #22a6b3, #2995a0);
+    --navBg: #22a6b3;
+    --lightBg: rgba(34,166,179,0.1);
+    --midBg: rgba(34,166,179,0.4);
+    --orangy: #e78200;
+    --navBgSolid: #22a6b3;
+    --darkText: #343f4d;
+    --midText: #a8a8a8;
+    --lightText: #e8e8e8;
+    --blueBtn: #03c4eb;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: sans-serif;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+
+/* keeps everything in a small container at the middle */
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/* styling navBar */
+
+#navBar {
+    padding: 10px 0;
+    background: var(--navBarBg);
+    display: flex;
+    position: sticky;
+    z-index: 999;
+    /*to keep it at the top all the time */
+    top: 0;
+    box-shadow: -3px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+#navBar .container {
+    display: flex;
+    align-items: center;
+}
+
+#navBar .logoDiv {
+    width: 185px;
+    height: 50px;
+}
+
+#navBar .logoDiv img:hover {
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+}
+
+#navBar .logoDiv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: drop-shadow(0px 0px 3px rgba(50, 50, 0, 0.5));
+}
+
+#navBar .buttonDiv {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+#navBar .buttonDiv:hover {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+}
+
+#navBar .buttonDiv.toggle .bar1 {
+    transform: rotate(45deg) translate(4px, 3px);
+    -webkit-transform: rotate(45deg) translate(4px, 3px);
+    -moz-transform: rotate(45deg) translate(4px, 3px);
+    -ms-transform: rotate(45deg) translate(4px, 3px);
+    -o-transform: rotate(45deg) translate(4px, 3px);
+}
+
+#navBar .buttonDiv.toggle .bar3 {
+    transform: rotate(-45deg) translate(8px, -8px);
+    -webkit-transform: rotate(-45deg) translate(8px, -8px);
+    -moz-transform: rotate(-45deg) translate(8px, -8px);
+    -ms-transform: rotate(-45deg) translate(8px, -8px);
+    -o-transform: rotate(-45deg) translate(8px, -8px);
+}
+
+#navBar .buttonDiv.toggle .bar2 {
+    opacity: 0;
+}
+
+#navBar .buttonDiv div {
+    width: 25px;
+    height: 3px;
+    background: var(--orangy);
+    margin: 5px 0;
+    transition: all linear 0.2s;
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+}
+
+#navBar .collaps {
+    transition: all linear 0.2s;
+    margin-left: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    background: var(--navBarBg);
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+}
+
+#navBar .collaps li:hover a,
+#navBar .collaps li.active a{ 
+    color: var(--darkText);
+}
+
+#navBar .collaps li:hover a:after,
+#navBar .collaps li.active a:after{
+    left: 0;
+}
+
+#navBar .collaps li:hover a:before,
+#navBar .collaps li.active a:before{
+    right: 0;
+}
+
+#navBar .collaps li:hover a:after,
+#navBar .collaps li.active a:after,
+#navBar .collaps li:hover a:before,
+#navBar .collaps li.active a:before{
+    width: 100%;
+    height: 50%;
+    background: var(--lightText); 
+}
+
+#navBar .collaps li a:after{
+    top: 0;
+    right: 0;
+}
+
+#navBar .collaps li a:before{
+    bottom: 0;
+    left: 0;
+}
+
+#navBar .collaps li a:after,
+#navBar .collaps li a:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    transition: all linear 0.3s;
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+}
+
+
+#navBar .collaps li a {
+	text-transform: uppercase;
+    display: inline-block;
+    color: var(--lightText);
+    padding: 20px 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 5px;
+    font-weight: bold;
+    position: relative;
+}
+
+
+#navBar .collaps li.navItem{
+    margin: 20px 0;
+}
+
+#navBar .searchBox form
+{
+    margin: 0 auto;
+    width: 200px;
+    border-radius: 20px;
+    background: #e8e8e8;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navBar .search
+{
+    padding: 5px 0 5px 15px;
+    color: var(--menuTextHoverColor);
+    outline: none;
+    border: none;
+    background: none;
+    width: 75%;
+}
+
+#navBar .searchBtn
+{
+    cursor: pointer;
+    color: var(--menuTextHoverColor);
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 30px;
+    background: #d8d8d8;
+}
+
+
+#navBar .collaps.toggle {
+        height: 320px;
+        opacity: 0.9;
+}
+
+@media screen and (min-width: 1265px)
+{
+    #navBar .collaps {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: 100%;
+        flex-direction: row;
+        opacity: 1;
+        background: none;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    #navBar .collaps li a {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 100%;
+        padding: 5px 15px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    #navBar .collaps li.navItem{
+        margin: 0 20px;
+    }
+    
+    #navBar .buttonDiv {
+        display: none;
+    }
+}
+
+/* done styling navBar */
+
+/* styling the more button used in  most of the pages */
+
+.sectionTitle{
+    display: block;
+    padding: 20px 0;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: var(--midText);
+}
+
+.moreButton{
+    display: inline-block;
+    color: #fff;
+    background: var(--midBg);
+    padding: 5px 10px;
+    border-radius: 5px;
+    height: 26px;
+    align-self: flex-end;
+}
+
+.moreButton:hover{
+    transform: scale(0.9);
+}
+
+/* styling the preview boxes used in all pages */
+
+
+/* designing the preview boxes that contain an image, a title, and a short description of the article or event */
+.previewBoxes{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
+    box-sizing: border-box;
+}
+
+.previewBoxes .previewBox{
+    width: 100%;
+    border: 0px solid var(--lightText);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.previewBoxes .previewBox:hover{
+    transform: scale(0.98);
+    opacity: 0.9;
+    border-radius: 10px;
+}
+
+.previewBoxes .previewBox{
+    width: 100%;
+    background: var(--lightBg);
+}
+
+.previewBoxes .previewBox .featureImage{
+    display: block;
+    position: relative;
+    padding-bottom: 60%;
+    height: 0;
+}
+.previewBoxes .previewBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.previewBoxes .previewBox span{
+    padding-left: 10px;
+}
+
+.previewBoxes .previewBox .title{
+    padding-top: 15px;
+    color: var(--darkText);
+    display: block;
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.previewBoxes .previewBox .time{ /* this applies to event boxes only  */ 
+    color: var(--darkText);
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--orangy);
+    display: block;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.previewBoxes .previewBox .time span{
+    padding-left: 0;
+}
+
+.previewBoxes .previewBox .shortDes{
+    padding: 10px;
+    color: var(--midText);
+    display: block;
+    font-size: 14px;
+    height: 44px;
+    overflow: hidden;
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+/* done styling the preview boxes */
+
+/* styling the ads section */
+
+.adsBody{
+    background: var(--midBg);
+}
+
+.adsBody .container{
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.adsBody .container img{
+    width: 100%;
+}
+/* styling the ads section finished */
+
+
+/* styling the ads and content grid for larger devices */
+@media screen and (min-width: 750px) {
+
+    .contentSection .container{
+        width: 87%!important;
+        margin: 0 !important;
+        margin-left: auto !important;
+    }
+    .previewBoxes .previewBox{
+        width: 45%;
+    }
+    .adsAndContent{
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+    }
+    .contentBody{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+
+/* styling the footer */
+#footer{
+    background: var(--navBarBg);
+    opacity: 0.6;
+    padding: 20px 0;
+    text-align: center;
+    color: #fff;
+}
